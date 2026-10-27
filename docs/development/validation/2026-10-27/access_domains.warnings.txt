@@ -1,0 +1,2 @@
+detected 1 outbound domain(s) by static scan:
+  api.browseract.com [domain] (browseract/client.py:32)

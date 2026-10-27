@@ -1,0 +1,381 @@
+[
+  {
+    "source": "bot",
+    "id": "91728565825850643",
+    "name": "google search",
+    "bot_type": "workflow",
+    "http_status": 200,
+    "endpoint": "/v3/bots/91728565825850643",
+    "file": "bot-91728565825850643.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "bot_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "output_schema"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "search_input": {
+          "type": "string",
+          "description": "please enter you search context, use \"+\" replace space",
+          "default": "Stellar+Blade"
+        }
+      },
+      "required": []
+    },
+    "output_schema_present": false
+  },
+  {
+    "source": "bot",
+    "id": "118154167847668957",
+    "name": "Bot-0914-01",
+    "bot_type": "agent",
+    "http_status": 200,
+    "endpoint": "/v3/bots/118154167847668957",
+    "file": "bot-118154167847668957.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "bot_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "output_schema"
+    ],
+    "input_schema": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "lookbackHours": {
+          "type": "integer",
+          "default": 6,
+          "minimum": 1,
+          "description": "How many hours back from the run start a post still counts as new; match it to how often the Bot is run."
+        }
+      }
+    },
+    "output_schema_present": true
+  },
+  {
+    "source": "template",
+    "id": "117700557239492064",
+    "name": "Google Maps No Website Lead Finder API",
+    "bot_type": "agent",
+    "http_status": 200,
+    "endpoint": "/v3/bots/templates/117700557239492064",
+    "file": "template-117700557239492064.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "template_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "recommend_desc",
+      "detail_url"
+    ],
+    "input_schema": {
+      "type": "object",
+      "required": [
+        "industry",
+        "country",
+        "location",
+        "max_results",
+        "min_rating",
+        "min_review_count",
+        "exclude_chains",
+        "start_rank",
+        "excluded_maps_urls"
+      ],
+      "properties": {
+        "industry": {
+          "enum": [
+            "Dentist / Dental Clinic",
+            "Med Spa / Medical Spa",
+            "Hair Salon",
+            "Barber Shop",
+            "Pet Groomer",
+            "Auto Repair Shop",
+            "Plumber",
+            "HVAC Contractor",
+            "Roofing Contractor",
+            "Electrician",
+            "Landscaper",
+            "Cleaning Service",
+            "Photography Studio",
+            "Law Firm",
+            "Accountant"
+          ],
+          "type": "string",
+          "default": "Dentist / Dental Clinic",
+          "description": "Business industry to search for."
+        },
+        "country": {
+          "enum": [
+            "United States",
+            "Canada",
+            "United Kingdom",
+            "Australia",
+            "New Zealand",
+            "Ireland"
+          ],
+          "type": "string",
+          "default": "United States",
+          "description": "Country included in the Google Maps search."
+        },
+        "location": {
+          "type": "string",
+          "default": "Austin, TX",
+          "maxLength": 160,
+          "minLength": 1,
+          "description": "City, neighborhood, region, state or province, or postal code to search."
+        },
+        "max_results": {
+          "type": "integer",
+          "default": 5,
+          "maximum": 50,
+          "minimum": 5,
+          "description": "Maximum number of unique businesses to check and return."
+        },
+        "min_rating": {
+          "type": "number",
+          "default": 4,
+          "maximum": 5,
+          "minimum": 0,
+          "description": "Minimum Maps rating used only when assigning lead_status."
+        },
+        "min_review_count": {
+          "type": "integer",
+          "default": 20,
+          "minimum": 0,
+          "description": "Minimum Maps review count used only when assigning lead_status."
+        },
+        "exclude_chains": {
+          "type": "boolean",
+          "default": true,
+          "description": "When true, classify a detected multi-location chain as excluded rather than silently removing it."
+        },
+        "start_rank": {
+          "type": "integer",
+          "default": 1,
+          "maximum": 1000,
+          "minimum": 1,
+          "description": "First deduplicated Google Maps feed rank eligible for this run; use the previous run's next_start_rank to continue."
+        },
+        "excluded_maps_urls": {
+          "type": "string",
+          "default": "None",
+          "maxLength": 200000,
+          "minLength": 1,
+          "description": "Google Maps URLs from previous output to skip, separated only by new lines or semicolons; None means no history exclusion."
+        }
+      }
+    },
+    "output_schema_present": false
+  },
+  {
+    "source": "template",
+    "id": "54054669770646127",
+    "name": "Google Maps Scraper",
+    "bot_type": "workflow",
+    "http_status": 200,
+    "endpoint": "/v3/bots/templates/54054669770646127",
+    "file": "template-54054669770646127.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "template_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "recommend_desc",
+      "detail_url"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "URL": {
+          "type": "string",
+          "default": "https://www.google.com/maps"
+        },
+        "Area": {
+          "type": "string",
+          "default": "Los Angeles"
+        },
+        "Keyword": {
+          "type": "string",
+          "default": "restaurant"
+        },
+        "datalimit": {
+          "type": "string",
+          "default": "20"
+        }
+      },
+      "required": []
+    },
+    "output_schema_present": false
+  },
+  {
+    "source": "template",
+    "id": "54602233871863413",
+    "name": "Website Data Scrape",
+    "bot_type": "workflow",
+    "http_status": 200,
+    "endpoint": "/v3/bots/templates/54602233871863413",
+    "file": "template-54602233871863413.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "template_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "recommend_desc",
+      "detail_url"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "websitelink": {
+          "type": "string",
+          "description": "its a webiste link to scrape data",
+          "default": " https://www.browseract.com/"
+        }
+      },
+      "required": []
+    },
+    "output_schema_present": false
+  },
+  {
+    "source": "template",
+    "id": "113863425622286759",
+    "name": "Amazon Product Reviews Scraper Bot",
+    "bot_type": "agent",
+    "http_status": 200,
+    "endpoint": "/v3/bots/templates/113863425622286759",
+    "file": "template-113863425622286759.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "template_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "recommend_desc",
+      "detail_url"
+    ],
+    "input_schema": {
+      "type": "object",
+      "required": [
+        "marketplace_url",
+        "asin",
+        "review_count"
+      ],
+      "properties": {
+        "marketplace_url": {
+          "type": "string",
+          "default": "https://www.amazon.com",
+          "pattern": "^https://[a-zA-Z0-9.-]*amazon\\.[a-z.]+/?$",
+          "maxLength": 200,
+          "minLength": 11,
+          "description": "Amazon marketplace root URL, for example https://www.amazon.com."
+        },
+        "asin": {
+          "type": "string",
+          "default": "B085DTZQNZ",
+          "pattern": "^[A-Za-z0-9]{10}$",
+          "maxLength": 10,
+          "minLength": 10,
+          "description": "10-character Amazon product ASIN."
+        },
+        "review_count": {
+          "type": "integer",
+          "default": 10,
+          "minimum": 1,
+          "description": "Maximum number of reviews to return."
+        }
+      }
+    },
+    "output_schema_present": false
+  },
+  {
+    "source": "template",
+    "id": "57685316630221694",
+    "name": "Reddit Scraper",
+    "bot_type": "workflow",
+    "http_status": 200,
+    "endpoint": "/v3/bots/templates/57685316630221694",
+    "file": "template-57685316630221694.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "template_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "recommend_desc",
+      "detail_url"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "Total_Comments": {
+          "type": "string",
+          "default": "10"
+        },
+        "TargetURL": {
+          "type": "string",
+          "default": "https://www.reddit.com/search/?q=scrape"
+        }
+      },
+      "required": []
+    },
+    "output_schema_present": false
+  },
+  {
+    "source": "template",
+    "id": "113863461617804199",
+    "name": "YouTube Transcript Scraper",
+    "bot_type": "agent",
+    "http_status": 200,
+    "endpoint": "/v3/bots/templates/113863461617804199",
+    "file": "template-113863461617804199.json",
+    "top_level_fields": [
+      "name",
+      "description",
+      "template_id",
+      "bot_type",
+      "created_at",
+      "published_at",
+      "input_schema",
+      "recommend_desc",
+      "detail_url"
+    ],
+    "input_schema": {
+      "type": "object",
+      "required": [
+        "video_url"
+      ],
+      "properties": {
+        "video_url": {
+          "type": "string",
+          "default": "https://www.youtube.com/watch?v=OSZwztKANGg",
+          "minLength": 1,
+          "description": "Public YouTube video URL (watch?v=, youtu.be/, /shorts/, /embed/, or /live/ forms accepted)."
+        }
+      }
+    },
+    "output_schema_present": false
+  }
+]

@@ -1,0 +1,2 @@
+dependency source: uv.lock (49 pinned, 0 unpinned)
+no known vulnerabilities in the pinned dependency set

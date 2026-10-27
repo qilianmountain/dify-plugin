@@ -1,0 +1,3 @@
+browseract/client.py:26: return value may expose credential-like values: return message.replace(self._api_key, "[REDACTED]")
+tools/run_my_bot.py:20: return value may expose credential-like values: return option_cache.get( self.runtime.credentials["api_key"], self.runtime.user_id, "my_bot:bot_id", lambda: parameter_options(client.list_bots(), "bot_id"), )
+tools/run_official_template.py:20: return value may expose credential-like values: return option_cache.get( self.runtime.credentials["api_key"], self.runtime.user_id, "official_template:" + parameter, lambda: parameter_options(client.list_templates(), "template_i

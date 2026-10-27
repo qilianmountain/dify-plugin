@@ -1,0 +1,11 @@
+{
+  "industry": "Dentist / Dental Clinic",
+  "country": "United States",
+  "location": "Austin, TX",
+  "max_results": 5,
+  "min_rating": 4,
+  "min_review_count": 20,
+  "exclude_chains": true,
+  "start_rank": 1,
+  "excluded_maps_urls": "None"
+}
